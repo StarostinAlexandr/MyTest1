@@ -147,7 +147,9 @@ public class Tests extends WebDriverSettings {
         searchButton.click();
 
 //        List<WebElement> news = chromeDriver.findElements(By.xpath("//*[@class=\"product-layout product-list col-xs-12\"]//*[@class=\"short__desc\"]"));
-        List<WebElement> news = chromeDriver.findElements(By.xpath("//*[@id=\"res\"]//*[@class=\"g\"]"));
+//        List<WebElement> news = chromeDriver.findElements(By.xpath("//*[@id=\"res\"]//*[@class=\"g\"]"));
+//        List<WebElement> news = chromeDriver.findElements(By.xpath("//*[@class=\"organic typo typo_text_m typo_line_s i-bem\"]"));
+        List<WebElement> news = chromeDriver.findElements(By.xpath("//*[@class=\"organic__title-wrapper typo typo_text_l typo_line_m\"]"));
 
         System.out.println(news.size());
 
