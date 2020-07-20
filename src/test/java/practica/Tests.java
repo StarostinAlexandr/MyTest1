@@ -176,7 +176,7 @@ public class Tests extends WebDriverSettings {
     }
 
     @Test
-    public void testPOYandexResultContainsFrase(){
+    public void testPOYandexResultContains(){
         chromeDriver.get("https://www.yandex.ru");
 //        PageObjectBell bellPO = new PageObjectBell(chromeDriver);
         PageObjectYandex pageObject = new PageObjectYandex(chromeDriver);
@@ -190,7 +190,18 @@ public class Tests extends WebDriverSettings {
     }
 
     @Test
-    public void testPFYandexFindFrase(){
+    public void testPFYandexResultMoreThanThree(){
+        chromeDriver.get("https://yandex.ru");
+        PageFactoryYandex pageFactory = PageFactory.initElements(chromeDriver,PageFactoryYandex.class);
+        pageFactory.find("гладиолус");
+        Assertions.assertTrue(
+                pageFactory.getListResult().size() > 3
+                , "Список с результатом поиска по слову гладиолус имеет размер не более трёх элементов"
+        );
+    }
+
+    @Test
+    public void testPFYandexResultContains(){
         chromeDriver.get("https://yandex.ru");
         PageFactoryYandex pageFactory = PageFactory.initElements(chromeDriver,PageFactoryYandex.class);
         pageFactory.find("гладиолус");
