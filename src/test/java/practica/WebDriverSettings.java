@@ -13,7 +13,6 @@ public class WebDriverSettings {
 
     @BeforeEach
     public void installSettings(){
-//        System.setProperty("webdriver.chrome.driver","C:\\temp\\chromedriver.exe");
         System.setProperty("webdriver.chrome.driver",System.getenv("CHROME_DRIVER"));
         chromeDriver = new ChromeDriver();
         chromeDriver.manage().window().maximize();
