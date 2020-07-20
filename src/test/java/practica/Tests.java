@@ -21,7 +21,6 @@ public class Tests extends WebDriverSettings {
                 pageObjectYandex.getListResult().size() > 3
                 , "Список с результатом поиска имеет размер не более трёх элементов"
         );
-
     }
 
     @Test
