@@ -1,4 +1,4 @@
-package ru.bellintegrator;
+package practica;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,7 +23,7 @@ public class WebDriverSettings {
     }
 
     @AfterEach
-    public void cliseBrowser(){
+    public void closeBrowser(){
         chromeDriver.quit();
     }
 

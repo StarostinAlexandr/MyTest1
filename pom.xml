@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>FirstTest19072020</artifactId>
+    <artifactId>MyTest1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
         <plugins>
@@ -36,7 +36,6 @@
         <selenium.java.version>3.141.59</selenium.java.version>
     </properties>
 
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
         <dependency>
@@ -58,7 +57,6 @@
             <version>${qameta.allure}</version>
             <scope>test</scope>
         </dependency>
-
 
     </dependencies>
 

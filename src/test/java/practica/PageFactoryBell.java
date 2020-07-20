@@ -1,4 +1,4 @@
-package ru.bellintegrator;
+package practica;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
