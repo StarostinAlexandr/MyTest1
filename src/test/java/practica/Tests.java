@@ -140,7 +140,9 @@ public class Tests extends WebDriverSettings {
         WebElement searchField = chromeDriver.findElement(By.xpath("//*[@id=\"text\"]"));
         searchField.click();
         searchField.sendKeys("Гладиолус");
-        WebElement searchButton = chromeDriver.findElement(By.xpath("/html/body/div[2]/div[2]/div[3]/div/aqwf/fgn/fwap/fdpprt/aqwf/fgn/fwap/pjtr/ftgr[1]/fdpprt/pjtr/fgn/div/div/eflll/aqwf/div/div/div[2]/div[2]/form/div[2]/button"));
+//        WebElement searchButton = chromeDriver.findElement(By.xpath("/html/body/header/div/div/div[3]/form/div[2]/button/div"));
+        WebElement searchButton = chromeDriver.findElement(By.cssSelector(".mini-suggest__button"));
+        System.out.println(searchButton.getText());
 
         searchButton.click();
 
