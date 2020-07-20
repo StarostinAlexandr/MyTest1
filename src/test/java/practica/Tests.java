@@ -157,7 +157,35 @@ public class Tests extends WebDriverSettings {
 
         Assertions.assertTrue(
                 news.stream().anyMatch(x->x.getText().contains("Шпажник — Википедия"))
-                , "Заданные новости не найдены"
+                , "Заданная фраза не найдена"
         );
+    }
+
+    @Test
+    public void testPOYandexResultMoreThanThree(){
+        chromeDriver.get("https://www.yandex.ru/");
+        PageObjectYandex pageObjectYandex = new PageObjectYandex(chromeDriver);
+        pageObjectYandex.find("гладиолус");
+        System.out.println(pageObjectYandex.getListResult().size());
+        pageObjectYandex.getListResult().stream().forEach(x-> System.out.println(x.getText()));
+        Assertions.assertTrue(
+                pageObjectYandex.getListResult().size() > 3
+                , "Список с результатом поиска по слову гладиолус имеет размер не более трёх элементов"
+        );
+
+    }
+
+    @Test
+    public void testPOYandexResultContainsFrase(){
+        chromeDriver.get("https://www.yandex.ru");
+//        PageObjectBell bellPO = new PageObjectBell(chromeDriver);
+        PageObjectYandex pageObject = new PageObjectYandex(chromeDriver);
+        pageObject.find("гладиолус");
+        System.out.println(pageObject.getListResult().size());
+        Assertions.assertTrue(
+                pageObject.getListResult().stream().anyMatch(x->x.getText().contains("Шпажник — Википедия"))
+                , "Заданная фраза не найдена"
+        );
+
     }
 }
