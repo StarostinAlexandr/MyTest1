@@ -188,4 +188,15 @@ public class Tests extends WebDriverSettings {
         );
 
     }
+
+    @Test
+    public void testPFYandexFindFrase(){
+        chromeDriver.get("https://yandex.ru");
+        PageFactoryYandex pageFactory = PageFactory.initElements(chromeDriver,PageFactoryYandex.class);
+        pageFactory.find("гладиолус");
+        Assertions.assertTrue(
+                pageFactory.getListResult().stream().anyMatch(x->x.getText().contains("Шпажник — Википедия"))
+                , "Заданная фраза не найдена"
+        );
+    }
 }
