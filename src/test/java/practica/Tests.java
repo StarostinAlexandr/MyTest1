@@ -40,6 +40,7 @@ public class Tests extends WebDriverSettings {
         chromeDriver.get("https://yandex.ru");
         PageFactoryYandex pageFactory = PageFactory.initElements(chromeDriver,PageFactoryYandex.class);
         pageFactory.find("гладиолус");
+        System.out.println(pageFactory.getListResult().size());
         Assertions.assertTrue(
                 pageFactory.getListResult().size() > 3
                 , "Список с результатом поиска имеет размер не более трёх элементов"

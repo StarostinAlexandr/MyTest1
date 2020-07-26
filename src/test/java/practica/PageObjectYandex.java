@@ -27,7 +27,8 @@ public class PageObjectYandex {
         searchField.click();
         searchField.sendKeys(wordFind);
         searchButton.click();
-        listResult = chromeDriver.findElements(By.xpath("//*[@class=\"organic__title-wrapper typo typo_text_l typo_line_m\"]"));
+//        listResult = chromeDriver.findElements(By.xpath("//*[@class=\"organic__title-wrapper typo typo_text_l typo_line_m\"]"));
+        listResult = chromeDriver.findElements(By.xpath("//li[@class=\"serp-item\"]//h2"));
     }
 
 }
