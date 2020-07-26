@@ -24,6 +24,19 @@ public class Tests extends WebDriverSettings {
     }
 
     @Test
+    public void testPOYandexResultMoreThanThreeNegative(){
+        chromeDriver.get("https://www.yandex.ru/");
+        PageObjectYandex pageObjectYandex = new PageObjectYandex(chromeDriver);
+        pageObjectYandex.find("");
+        System.out.println(pageObjectYandex.getListResult().size());
+        pageObjectYandex.getListResult().stream().forEach(x-> System.out.println(x.getText()));
+        Assertions.assertFalse(
+                pageObjectYandex.getListResult().size() > 3
+                , "Список с результатом поиска имеет размер не должен быть более трёх элементов"
+        );
+    }
+
+    @Test
     public void testPOYandexResultContains(){
         chromeDriver.get("https://www.yandex.ru");
         PageObjectYandex pageObject = new PageObjectYandex(chromeDriver);
@@ -32,6 +45,18 @@ public class Tests extends WebDriverSettings {
         Assertions.assertTrue(
                 pageObject.getListResult().stream().anyMatch(x->x.getText().contains("Гладиолус - Википедия"))
                 , "Заданный текст не найден"
+        );
+    }
+
+    @Test
+    public void testPOYandexResultContainsNegative(){
+        chromeDriver.get("https://www.yandex.ru");
+        PageObjectYandex pageObject = new PageObjectYandex(chromeDriver);
+        pageObject.find("гладиолус");
+        System.out.println(pageObject.getListResult().size());
+        Assertions.assertFalse(
+                pageObject.getListResult().stream().anyMatch(x->x.getText().contains("Гладиолус - Википедия"))
+                , "Заданный текст не должен быть в результате поиска"
         );
     }
 
@@ -48,6 +73,18 @@ public class Tests extends WebDriverSettings {
     }
 
     @Test
+    public void testPFYandexResultMoreThanThreeNegative(){
+        chromeDriver.get("https://yandex.ru");
+        PageFactoryYandex pageFactory = PageFactory.initElements(chromeDriver,PageFactoryYandex.class);
+        pageFactory.find("");
+        System.out.println(pageFactory.getListResult().size());
+        Assertions.assertFalse(
+                pageFactory.getListResult().size() > 3
+                , "Список с результатом поиска имеет размер не должен быть более трёх элементов"
+        );
+    }
+
+    @Test
     public void testPFYandexResultContains(){
         chromeDriver.get("https://yandex.ru");
         PageFactoryYandex pageFactory = PageFactory.initElements(chromeDriver,PageFactoryYandex.class);
@@ -55,6 +92,17 @@ public class Tests extends WebDriverSettings {
         Assertions.assertTrue(
                 pageFactory.getListResult().stream().anyMatch(x->x.getText().contains("Гладиолус - Википедия"))
                 , "Заданный текст не найден"
+        );
+    }
+
+    @Test
+    public void testPFYandexResultContainsNegative(){
+        chromeDriver.get("https://yandex.ru");
+        PageFactoryYandex pageFactory = PageFactory.initElements(chromeDriver,PageFactoryYandex.class);
+        pageFactory.find("гладиолус");
+        Assertions.assertFalse(
+                pageFactory.getListResult().stream().anyMatch(x->x.getText().contains("Гладиолус - Википедия"))
+                , "Заданный текст не должен быть найден в списке результата поиска"
         );
     }
 }

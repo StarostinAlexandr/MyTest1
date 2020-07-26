@@ -18,7 +18,7 @@ public class WebDriverSettings {
         chromeDriver.manage().window().maximize();
         chromeDriver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
         chromeDriver.manage().timeouts().setScriptTimeout(40, TimeUnit.SECONDS);
-        chromeDriver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+        chromeDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterEach

@@ -17,7 +17,6 @@ public class PageFactoryYandex {
     @FindBy(how= How.CSS, css=".mini-suggest__button")
     WebElement searchButton;
 
-//    @FindAll(@FindBy(how = How.XPATH, using="//*[@class=\"organic__title-wrapper typo typo_text_l typo_line_m\"]"))
     @FindAll(@FindBy(how = How.XPATH, using="//li[@class=\"serp-item\"]//h2"))
     List<WebElement> listResult;
 
